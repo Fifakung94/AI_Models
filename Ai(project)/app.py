@@ -9,19 +9,18 @@ st.set_page_config(page_title="Project IS 2568 - AI Model", layout="wide")
 # --- 2. ฟังก์ชันโหลดโมเดล (ดึงจากโฟลเดอร์ models) ---
 @st.cache_resource
 def load_all_models():
-    # โหลดโมเดล Diabetes (Ensemble)
-    with open('models/diabetes_model.pkl', 'rb') as f:
+    # โหลดโมเดล Diabetes
+    with open('Ai(project)/models/diabetes_model.pkl', 'rb') as f:
         d_model = pickle.load(f)
-    with open('models/scaler_diabetes.pkl', 'rb') as f:
+    with open('Ai(project)/models/scaler_diabetes.pkl', 'rb') as f:
         d_scaler = pickle.load(f)
-    
-    # โหลดโมเดล Telco Churn (Neural Network - MLP)
-    # เปลี่ยนจาก load_model เป็น pickle.load เพราะไม่ได้ใช้ tensorflow แล้ว
-    with open('models/churn_model.pkl', 'rb') as f:
+
+    # โหลดโมเดล Telco Churn
+    with open('Ai(project)/models/churn_model.pkl', 'rb') as f:
         c_model = pickle.load(f)
-    with open('models/scaler_churn.pkl', 'rb') as f:
+    with open('Ai(project)/models/scaler_churn.pkl', 'rb') as f:
         c_scaler = pickle.load(f)
-        
+
     return d_model, d_scaler, c_model, c_scaler
 
 # โหลดโมเดลมาเก็บไว้ในตัวแปร
